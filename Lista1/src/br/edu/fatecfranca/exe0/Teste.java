@@ -1,12 +1,20 @@
 
 package br.edu.fatecfranca.exe0;
 
+import javax.swing.JOptionPane;
+
 public class Teste {
 
     public static void main(String[] args) {
         // TODO code application logic here
         // criar objeto
-        Carro obj1 = new Carro("Onix", 2019, 0, false);
+        String auxModelo = JOptionPane.showInputDialog("Informe o modelo: ");
+        int auxAno = Integer.parseInt(JOptionPane.showInputDialog("Informe o ano: "));
+        float auxVel = Float.parseFloat(JOptionPane.showInputDialog("Informe a velocidade: "));
+        int resp = JOptionPane.showConfirmDialog(null, "Carro está ligado?");
+        boolean auxMotor = (resp == JOptionPane.OK_OPTION);
+         
+        Carro obj1 = new Carro(auxModelo, auxAno, auxVel, auxMotor);
         // chamar os métodos
         obj1.mostrar();
         obj1.ligar();
@@ -30,6 +38,10 @@ public class Teste {
         obj2.mostrar();
         obj2.desligar();
         obj2.mostrar();
+        
+        Carro obj3 = new Carro(); // Exemplo de construtar sem padrão
+        obj3.ano = 2019;
+        
     }
     
 }
